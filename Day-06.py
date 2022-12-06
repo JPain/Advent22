@@ -14,10 +14,12 @@ def part1():
 
 def part2():
     with open(inputFileName) as fileInput:
-        for line in fileInput.readlines():
-            print('nothing')
-            # Logic here
+        input = fileInput.readline()
+        for i in range(14,len(input)):
+            if len(set(input[i-14:i])) == 14:
+                print('Found {0} at {1}'.format(input[i-14:i], i))
+                return
 
 if __name__ == "__main__":
-    part1()
-    # part2()
+    # part1()
+    part2()
