@@ -11,6 +11,7 @@ def part1():
 def part2():
     with open(inputFileName) as fileInput:
         for line in fileInput.readlines():
+            print('nothing')
             # Logic here
 
 if __name__ == "__main__":
