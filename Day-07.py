@@ -29,7 +29,20 @@ def part1():
             elif line[0].isnumeric():
                 files[currentDirectory + line[line.index(' ')+1:]] = int(line[:line.index(' ')])
                 directories[currentDirectory] = directories[currentDirectory] + int(line[:line.index(' ')])
-        # more stuff here
+        for item in directories:
+            for secondItem in directories:
+                if secondItem == item:
+                    continue
+                if secondItem.find(item) == 0:
+                    directories[item] = (directories[item] + directories[secondItem])
+        sumTotal = 0
+        for dire, size in directories.items():
+            if size < 100000:
+                print('found ' + str(size))
+                sumTotal = sumTotal + size
+        print(sumTotal)
+        # Oh my, that got very very ugly
+
         
 
 def part2():
